@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "antikythera"
+version = "0.1.0"
+description = "Statistical models for the Antikythera mechanism"
+authors = [
+    {name = "Xin Li", email = "xl628@cam.ac.uk"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3"
+]
+dependencies = [
+    "numpy>=1.26.3",
+    "jax>=0.4.25",
+    "jaxlib>=0.4.25",
+    "scipy>=1.11.4",
+    "pandas>=2.1.4",
+    "matplotlib>=3.8.2",
+    "numpyro>=0.13.2",
+    "arviz>=0.16.1",
+    "jupyter>=1.0.0",
+    "notebook>=7.0.6",
+    "pytest>=7.4.4",
+    "tqdm>=4.66.1",
+    "seaborn>=0.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest-cov>=4.1.0",
+    "black>=23.12.1",
+    "isort>=5.13.2",
+    "flake8>=7.0.0",
+    "pre-commit>=3.6.0",
+]
+
+[tool.setuptools]
+packages = ["antikythera"]
+
+[tool.pytest.ini_options]
+testpaths = ["antikythera/tests"]
+python_files = "*_test.py"
+python_functions = "*_test"
+
+[tool.coverage.run]
+source = ["antikythera"]
+omit = ["*/tests/*"]
